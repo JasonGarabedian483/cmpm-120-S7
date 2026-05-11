@@ -7,7 +7,7 @@ class TitleScreen extends Phaser.Scene {
         this.load.image('background', 'titleBackgroundBase.png')
         this.load.image('play', 'play.png')
         this.load.image('fairy', 'fairy.png')
-        this.load.image('titlecard', 'titlecard.png')
+        this.load.image('titlecard', 'titleCard.png')
     }
     create() {
         this.cameras.main.setBackgroundColor('#67BED9');

@@ -11,11 +11,11 @@ class TitleScreen extends Phaser.Scene {
     }
     create() {
         this.cameras.main.setBackgroundColor('#67BED9');
-        let backgroundImage = this.add.image(960 * .5, 540 * .5, 'background').setScale(.5);
-        let titleCard = this.add.image(960 * .5, 540* .5, 'titlecard').setScale(.5);
+        let backgroundImage = this.add.image(480, 270, 'background').setScale(.5);
+        let titleCard = this.add.image(480, 270, 'titlecard').setScale(.5);
 
         // button clicking
-        let playButton = this.add.image(960 / 2, 700 / 2, 'play').setScale(1.5).setInteractive({useHandCursor: true});
+        let playButton = this.add.image(480, 350, 'play').setScale(1.5).setInteractive({useHandCursor: true});
             playButton.on('pointerdown', () => {
                 this.tweens.add({
                     targets: playButton,
@@ -37,8 +37,8 @@ class TitleScreen extends Phaser.Scene {
             })
 
         // starting right fairy shaking animation
-        let fairyImage1 = this.add.image(1350 / 2, 650 / 2, 'fairy').setAngle(15).setScale(.5);
-        let fairyImage2 = this.add.image(300 / 2, 800 / 2, 'fairy').setAngle(20).setScale(.5);
+        let fairyImage1 = this.add.image(675, 325, 'fairy').setAngle(15).setScale(.5);
+        let fairyImage2 = this.add.image(150, 400, 'fairy').setAngle(20).setScale(.5);
             this.tweens.add({
                 targets: [fairyImage1, fairyImage2],
                 angle: -15,
@@ -49,8 +49,8 @@ class TitleScreen extends Phaser.Scene {
             })
         
         // starting left fairy shaking animation
-        let fairyImage3 = this.add.image(600 / 2, 450 / 2, 'fairy').setAngle(-15).setScale(.5);
-        let fairyImage4 = this.add.image(960 / 2, 150 / 2, 'fairy').setAngle(-20).setScale(.5);
+        let fairyImage3 = this.add.image(300, 225, 'fairy').setAngle(-15).setScale(.5);
+        let fairyImage4 = this.add.image(480, 75, 'fairy').setAngle(-20).setScale(.5);
             this.tweens.add({
                 targets: [fairyImage3, fairyImage4],
                 angle: 15,

@@ -11,16 +11,16 @@ class TitleScreen extends Phaser.Scene {
     }
     create() {
         this.cameras.main.setBackgroundColor('#67BED9');
-        let backgroundImage = this.add.image(960, 540, 'background');
-        let titleCard = this.add.image(960, 540, 'titlecard');
+        let backgroundImage = this.add.image(960 * .5, 540 * .5, 'background').setScale(.5);
+        let titleCard = this.add.image(960 * .5, 540* .5, 'titlecard').setScale(.5);
 
         // button clicking
-        let playButton = this.add.image(960, 700, 'play').setScale(3).setInteractive({useHandCursor: true});
+        let playButton = this.add.image(960 / 2, 700 / 2, 'play').setScale(1.5).setInteractive({useHandCursor: true});
             playButton.on('pointerdown', () => {
                 this.tweens.add({
                     targets: playButton,
-                    scaleX: playButton.scaleX - 0.5,
-                    scaleY: playButton.scaleY - 0.5,
+                    scaleX: playButton.scaleX - 0.25,
+                    scaleY: playButton.scaleY - 0.25,
                     duration: 100,
                     ease: 'Power1'
                 })
@@ -28,8 +28,8 @@ class TitleScreen extends Phaser.Scene {
             playButton.on('pointerup', () => {
                 this.tweens.add({
                     targets: playButton,
-                    scaleX: playButton.scaleX + 0.5,
-                    scaleY: playButton.scaleY + 0.5,
+                    scaleX: playButton.scaleX + 0.25,
+                    scaleY: playButton.scaleY + 0.25,
                     duration: 100,
                     ease: 'Power1'
                 })
@@ -37,8 +37,8 @@ class TitleScreen extends Phaser.Scene {
             })
 
         // starting right fairy shaking animation
-        let fairyImage1 = this.add.image(1350, 650, 'fairy').setAngle(15);
-        let fairyImage2 = this.add.image(300, 800, 'fairy').setAngle(20);
+        let fairyImage1 = this.add.image(1350 / 2, 650 / 2, 'fairy').setAngle(15).setScale(.5);
+        let fairyImage2 = this.add.image(300 / 2, 800 / 2, 'fairy').setAngle(20).setScale(.5);
             this.tweens.add({
                 targets: [fairyImage1, fairyImage2],
                 angle: -15,
@@ -49,8 +49,8 @@ class TitleScreen extends Phaser.Scene {
             })
         
         // starting left fairy shaking animation
-        let fairyImage3 = this.add.image(600, 450, 'fairy').setAngle(-15);
-        let fairyImage4 = this.add.image(960, 150, 'fairy').setAngle(-20);
+        let fairyImage3 = this.add.image(600 / 2, 450 / 2, 'fairy').setAngle(-15).setScale(.5);
+        let fairyImage4 = this.add.image(960 / 2, 150 / 2, 'fairy').setAngle(-20).setScale(.5);
             this.tweens.add({
                 targets: [fairyImage3, fairyImage4],
                 angle: 15,
@@ -59,7 +59,6 @@ class TitleScreen extends Phaser.Scene {
                 loop: -1,
                 yoyo: true
             })
-
     }
     update() {
 
@@ -108,8 +107,8 @@ class VictoryScreen extends Phaser.Scene {
 const game = new Phaser.Game({
     mode: Phaser.Scale.FIT,
     autoCenter: Phaser.Scale.CENTER_BOTH,
-    width: 1920,
-    height: 1080,
+    width: 1920 * .5,
+    height: 1080 * .5,
     scene: [TitleScreen, VictoryScreen],
     title: "Roly Poly: To the End!"
 });
